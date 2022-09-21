@@ -32,12 +32,21 @@ function Game(props) {
   const waldoRef = useRef(null);
   const gameboard = useRef(null);
   const dropdownMenuRef = useRef(null);
+
   const BMOStatus = useRef(null);
   const magicManStatus = useRef(null);
   const bubblegumStatus = useRef(null);
 
+  // const toggleDropdownMenu = () => {
+  //   setDropdownMenu((current) => !current);
+  // };
+
   const toggleDropdownMenu = () => {
-    setDropdownMenu((current) => !current);
+    if (dropdownMenuRef.current.style.display === 'none') {
+      dropdownMenuRef.current.style.display = 'block';
+    } else {
+      dropdownMenuRef.current.style.display = 'none';
+    }
   };
 
   const disableButton = (character) => {
@@ -58,12 +67,13 @@ function Game(props) {
     updateDoc(storedCoords, {
       current: [x, y]
     }).then(() => {});
-
+    console.log(`X: ${x}, Y: ${y}`);
     setTimeout(() => {
       if (dropdownMenuRef) {
         dropdownMenuRef.current.style.opacity = '100%';
         dropdownMenuRef.current.style.left = `${x}px`;
         dropdownMenuRef.current.style.top = `${y}px`;
+        dropdownMenuRef.current.style.display = 'none';
       }
       toggleDropdownMenu();
     }, 200);
@@ -80,12 +90,12 @@ function Game(props) {
       });
       if (character === 'bubblegum') {
         if (
-          // Bounds for X coords
+          // Bounds for Y coords
           characterPositions[1].current[1] >=
             characterPositions[0][character][1] - characterPositions[0][character][1] * 0.2 &&
           characterPositions[1].current[1] <=
             characterPositions[0][character][1] + characterPositions[0][character][1] * 0.35 &&
-          // Bounds for Y coords
+          // Bounds for X coords
           characterPositions[1].current[0] >=
             characterPositions[0][character][0] - characterPositions[0][character][0] * 0.2 &&
           characterPositions[1].current[0] <=
@@ -99,12 +109,12 @@ function Game(props) {
       }
       if (character === 'magicMan') {
         if (
-          // Bounds for X coords
+          // Bounds for Y coords
           characterPositions[1].current[1] >=
             characterPositions[0][character][1] - characterPositions[0][character][1] * 0.2 &&
           characterPositions[1].current[1] <=
             characterPositions[0][character][1] + characterPositions[0][character][1] * 0.2 &&
-          // Bounds for Y coords
+          // Bounds for X coords
           characterPositions[1].current[0] >=
             characterPositions[0][character][0] - characterPositions[0][character][0] * 0.2 &&
           characterPositions[1].current[0] <=
@@ -119,12 +129,12 @@ function Game(props) {
 
       if (character === 'bmo') {
         if (
-          // Bounds for X coords
+          // Bounds for Y coords
           characterPositions[1].current[1] >=
             characterPositions[0][character][1] - characterPositions[0][character][1] * 0.02 &&
           characterPositions[1].current[1] <=
             characterPositions[0][character][1] + characterPositions[0][character][1] * 0.08 &&
-          // Bounds for Y coords
+          // Bounds for X coords
           characterPositions[1].current[0] >=
             characterPositions[0][character][0] - characterPositions[0][character][0] * 0.02 &&
           characterPositions[1].current[0] <=
@@ -164,7 +174,7 @@ function Game(props) {
 
       // These can stay the same. Above needs to change.
       const bubblegumX = storedWidthX * 0.905;
-      const bubblegumY = storedWidthX * 0.22;
+      const bubblegumY = storedWidthY * 0.22;
 
       const storedCoords = doc(db, 'coordinates', 'N98ZypsxrlZBpNGnhQxs');
       updateDoc(storedCoords, {
@@ -202,6 +212,7 @@ function Game(props) {
             src={Waldo}
             onClick={(e) => {
               placeCharacters(e);
+              setDropdownMenu(true);
             }}
             className="waldoImage"
             ref={waldoRef}
