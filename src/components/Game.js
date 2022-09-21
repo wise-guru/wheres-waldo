@@ -67,7 +67,6 @@ function Game(props) {
     updateDoc(storedCoords, {
       current: [x, y]
     }).then(() => {});
-    console.log(`X: ${x}, Y: ${y}`);
     setTimeout(() => {
       if (dropdownMenuRef) {
         dropdownMenuRef.current.style.opacity = '100%';
