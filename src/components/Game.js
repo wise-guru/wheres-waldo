@@ -23,19 +23,13 @@ const firebaseConfig = {
 // Initialize Firebase and Firestore
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-const storageref = collection(db, 'coordinates');
-
 function Game(props) {
   const { time, setTime, timerOn, setTimerOn } = props;
   const [counter, setCounter] = useState(0);
   const [startGameModal, setStartGameModal] = useState(true);
   const [dropdownMenu, setDropdownMenu] = useState(false);
   const [endGameModal, setEndGameModal] = useState(false);
-  const [score, setScore] = useState([]);
-  //   const [time, setTime] = useState(0);
-  //   const [running, setRunning] = useState(true);
   const waldoRef = useRef(null);
-  const bubblegumRef = useRef(null);
   const gameboard = useRef(null);
   const dropdownMenuRef = useRef(null);
   const BMOStatus = useRef(null);
