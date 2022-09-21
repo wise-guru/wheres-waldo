@@ -48,6 +48,7 @@ function Game(props) {
     }
   };
 
+  // Coordinates for dropdown menu
   const placeCharacters = (event) => {
     const bounds = event.target.getBoundingClientRect();
     const x = event.clientX - bounds.left;
@@ -72,16 +73,19 @@ function Game(props) {
     const storedCoords = collection(db, 'coordinates');
     const characterPositions = [];
 
+    // Correctly selects character if X and Y coords are within these bounds for each target
     getDocs(storedCoords).then((snapshot) => {
       snapshot.docs.forEach((document) => {
         characterPositions.push({ ...document.data(), id: document.id });
       });
       if (character === 'bubblegum') {
         if (
+          // Bounds for X coords
           characterPositions[1].current[1] >=
             characterPositions[0][character][1] - characterPositions[0][character][1] * 0.2 &&
           characterPositions[1].current[1] <=
             characterPositions[0][character][1] + characterPositions[0][character][1] * 0.35 &&
+          // Bounds for Y coords
           characterPositions[1].current[0] >=
             characterPositions[0][character][0] - characterPositions[0][character][0] * 0.2 &&
           characterPositions[1].current[0] <=
@@ -95,10 +99,12 @@ function Game(props) {
       }
       if (character === 'magicMan') {
         if (
+          // Bounds for X coords
           characterPositions[1].current[1] >=
             characterPositions[0][character][1] - characterPositions[0][character][1] * 0.2 &&
           characterPositions[1].current[1] <=
             characterPositions[0][character][1] + characterPositions[0][character][1] * 0.2 &&
+          // Bounds for Y coords
           characterPositions[1].current[0] >=
             characterPositions[0][character][0] - characterPositions[0][character][0] * 0.2 &&
           characterPositions[1].current[0] <=
@@ -113,10 +119,12 @@ function Game(props) {
 
       if (character === 'bmo') {
         if (
+          // Bounds for X coords
           characterPositions[1].current[1] >=
             characterPositions[0][character][1] - characterPositions[0][character][1] * 0.02 &&
           characterPositions[1].current[1] <=
             characterPositions[0][character][1] + characterPositions[0][character][1] * 0.08 &&
+          // Bounds for Y coords
           characterPositions[1].current[0] >=
             characterPositions[0][character][0] - characterPositions[0][character][0] * 0.02 &&
           characterPositions[1].current[0] <=
@@ -129,8 +137,7 @@ function Game(props) {
         }
       }
     });
-
-    // if (score.includes('bubblegum') && score.includes('magicMan') && score.includes('bmo')
+    // Determines win
     if (counter >= 2) {
       setTimerOn(false);
       setDropdownMenu(false);
@@ -144,7 +151,8 @@ function Game(props) {
     setTimeout(() => {
       const initialselect = waldoRef.current;
       const boundstwo = initialselect.getBoundingClientRect();
-      // These needed to change
+
+      // window bounds on load
       const storedWidthX = boundstwo.width;
       const storedWidthY = boundstwo.height;
 
@@ -168,49 +176,47 @@ function Game(props) {
   }, []);
 
   return (
-    <div className="App">
-      <div className="container">
-        <div className="gameContainer">
-          <div className="header">
-            <div className="characterContainer">
-              <img
-                src={Bubblegum}
-                className="image-hold-two"
-                ref={bubblegumStatus}
-                alt="Princess Bubblegum"
-              />
-              <img src={BMO} className="image-hold-two" ref={BMOStatus} alt="BMO" />
-              <img src={MagicMan} className="image-hold-two" ref={magicManStatus} alt="Magic Man" />
-            </div>
-            <Stopwatch
-              className="stopwatch"
-              time={time}
-              setTime={setTime}
-              timerOn={timerOn}
-              setTimerOn={setTimerOn}
-            />
-          </div>
-          <div className="gameboard" ref={gameboard}>
+    <div className="container">
+      <div className="gameContainer">
+        <div className="header">
+          <div className="characterContainer">
             <img
-              src={Waldo}
-              onClick={(e) => {
-                placeCharacters(e);
-              }}
-              className="waldoImage"
-              ref={waldoRef}
-              alt="Adventure time cast"
+              src={Bubblegum}
+              className="image-hold-two"
+              ref={bubblegumStatus}
+              alt="Princess Bubblegum"
             />
-
-            <div ref={dropdownMenuRef} className="image-holder">
-              {dropdownMenu ? <DropdownMenu compareValues={compareValues} /> : <div />}
-            </div>
-            {startGameModal ? (
-              <GameStartModal setTimerOn={setTimerOn} setStartGameModal={setStartGameModal} />
-            ) : (
-              <div />
-            )}
-            {endGameModal ? <GameEnd time={time} /> : <div />}
+            <img src={BMO} className="image-hold-two" ref={BMOStatus} alt="BMO" />
+            <img src={MagicMan} className="image-hold-two" ref={magicManStatus} alt="Magic Man" />
           </div>
+          <Stopwatch
+            className="stopwatch"
+            time={time}
+            setTime={setTime}
+            timerOn={timerOn}
+            setTimerOn={setTimerOn}
+          />
+        </div>
+        <div className="gameboard" ref={gameboard}>
+          <img
+            src={Waldo}
+            onClick={(e) => {
+              placeCharacters(e);
+            }}
+            className="waldoImage"
+            ref={waldoRef}
+            alt="Adventure time cast"
+          />
+
+          <div ref={dropdownMenuRef} className="dropdownBox">
+            {dropdownMenu ? <DropdownMenu compareValues={compareValues} /> : <div />}
+          </div>
+          {startGameModal ? (
+            <GameStartModal setTimerOn={setTimerOn} setStartGameModal={setStartGameModal} />
+          ) : (
+            <div />
+          )}
+          {endGameModal ? <GameEnd time={time} /> : <div />}
         </div>
       </div>
     </div>
