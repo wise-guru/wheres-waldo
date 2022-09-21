@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/wheres-waldo/static/css/main.ed0178b0.css",
-    "main.js": "/wheres-waldo/static/js/main.b6712074.js",
+    "main.css": "/wheres-waldo/static/css/main.ca739265.css",
+    "main.js": "/wheres-waldo/static/js/main.58863fae.js",
     "static/media/waldo.png": "/wheres-waldo/static/media/waldo.25d264ab918ffbcf7d6c.png",
     "static/media/bubblegum.jpg": "/wheres-waldo/static/media/bubblegum.9a06d3e86a0fc664e90c.jpg",
     "static/media/magicMan.webp": "/wheres-waldo/static/media/magicMan.9e9d49cbfbb0a085aac4.webp",
     "static/media/BMO.webp": "/wheres-waldo/static/media/BMO.1ecb2dc20f486d01f099.webp",
     "index.html": "/wheres-waldo/index.html",
-    "main.ed0178b0.css.map": "/wheres-waldo/static/css/main.ed0178b0.css.map",
-    "main.b6712074.js.map": "/wheres-waldo/static/js/main.b6712074.js.map"
+    "main.ca739265.css.map": "/wheres-waldo/static/css/main.ca739265.css.map",
+    "main.58863fae.js.map": "/wheres-waldo/static/js/main.58863fae.js.map"
   },
   "entrypoints": [
-    "static/css/main.ed0178b0.css",
-    "static/js/main.b6712074.js"
+    "static/css/main.ca739265.css",
+    "static/js/main.58863fae.js"
   ]
 }
