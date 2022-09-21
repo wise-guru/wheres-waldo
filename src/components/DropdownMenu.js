@@ -1,4 +1,3 @@
-import { useRef } from 'react';
 import PB from '../Assets/bubblegum.jpg';
 import MagicMan from '../Assets/magicMan.webp';
 import BMO from '../Assets/BMO.webp';
@@ -6,7 +5,7 @@ import DropdownField from './DropdownFields';
 
 function DropdownMenu({
   characters = [
-    { name: 'Princess Bubblegum', character: 'bubblegum', image: PB, id: 1, clicked },
+    { name: 'Princess Bubblegum', character: 'bubblegum', image: PB, id: 1 },
     { name: 'Magic Man', character: 'magicMan', image: MagicMan, id: 2 },
     { name: 'BMO', character: 'bmo', image: BMO, id: 3 }
   ],
