@@ -1,38 +1,101 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body, h1, h2 {
+  margin: 0;
+  padding: 0;
+  }
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
   display: flex;
+  height: 100vh;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.characterContainer img {
+  height: 7rem;
+}
+
+.gameboard {
+  position: relative;
+}
+
+.waldoImage {
+  width: 100%;
+}
+
+
+.dropdownMenu, .dropdownBox {
+  position: absolute;
+}
+
+.dropdownMenu img {
+  height: 4rem;
+}
+
+.targets {
+  display: grid;
+}
+
+.dropdownCharacter {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  text-align: left;
+}
+
+.dropdownCharacterImage {
+  width: 5rem;
+}
+
+.bgModal {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  display: grid;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.modalContent {
+  width: 500px;
+  height: 300px;
+  background-color: rgb(26, 91, 230);
+  color:#fff;
+  position: relative;
+  border-radius: 4px;
+  padding: 20px;
+
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.modalContent button {
+  width: 10rem;
+  height: 3rem;
+  border-radius: 50px;
+}
+
+.modalContent button:hover {
+  background-color: rgba(184, 179, 179, 0.7);
+  cursor: pointer;
 }
