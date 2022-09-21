@@ -170,9 +170,9 @@ function Game(props) {
   return (
     <div className="App">
       <div className="container">
-        <div className="mini-container">
+        <div className="gameContainer">
           <div className="header">
-            <div className="statusContainer">
+            <div className="characterContainer">
               <img
                 src={Bubblegum}
                 className="image-hold-two"
