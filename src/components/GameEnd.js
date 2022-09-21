@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import TimeDisplay from './TimeDisplay';
 
 function GameEnd(props) {

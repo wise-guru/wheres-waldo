@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 function GameStartModal(props) {
   const { setTimerOn, setStartGameModal } = props;
   return (
