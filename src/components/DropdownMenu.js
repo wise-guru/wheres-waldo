@@ -12,11 +12,6 @@ function DropdownMenu({
   ],
   compareValues
 }) {
-  //   const characters = ({ ['Princess Bubblegum', 'BMO', 'Magic Man'], show, clickLocation, clicked;
-  //   const { x, y } = props;
-
-  //   const location = getCursorPosition();
-
   return (
     <div className="dropdownMenu" style={{ backgroundColor: 'white', color: 'red' }}>
       <div className="targets">
