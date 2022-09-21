@@ -1,11 +1,9 @@
 import { useRef } from 'react';
 
 function DropdownField(props) {
-  const { name, image, clicked, compareValues, character, id } = props;
+  const { name, image, compareValues, character } = props;
 
   const buttonRef = useRef(null);
-
-  // Field for each dropdown menu character
 
   return (
     <button
@@ -16,9 +14,7 @@ function DropdownField(props) {
       ref={buttonRef}
       onClick={(e) => {
         compareValues(e, character);
-      }}
-      //   role="menuitem"
-    >
+      }}>
       <div className="dropdownCharacter">
         <div className="dropdownCharacterImage">
           <img src={image} alt={name} />
