@@ -5,6 +5,8 @@ function DropdownField(props) {
 
   const buttonRef = useRef(null);
 
+  // Field for each dropdown menu character
+
   return (
     <button
       type="button"
