@@ -1,5 +1,6 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(17 24 39/1)
 }
 
 body, h1, h2 {
@@ -25,6 +26,10 @@ body, h1, h2 {
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+
+.Timers {
+  color: #fff;
 }
 
 .characterContainer img {
@@ -99,4 +104,29 @@ body, h1, h2 {
 .modalContent button:hover {
   background-color: rgba(184, 179, 179, 0.7);
   cursor: pointer;
+}
+
+@media (max-width: 540px) {
+  .header {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .characterContainer img {
+    height: 6.5rem;
+  }
+
+  .modalContent {
+    width: 100%;
+    padding: 0;
+  }
+
+  .dropdownCharacterImage {
+    width: 2rem;
+  }
+
+  .dropdownMenu img {
+    height: 2rem;
+  }
 }
